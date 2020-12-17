@@ -1,3 +1,4 @@
 node_modules
+toIgnore
 mongodbUserPassword.txt
 .env

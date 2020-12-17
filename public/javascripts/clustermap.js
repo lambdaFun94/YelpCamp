@@ -1,8 +1,8 @@
 mapboxgl.accessToken = mapToken;
 var map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/mapbox/light-v10",
-  center: [-103.59179687498357, 40.66995747013945],
+  style: "mapbox://styles/asanchez94/ckitghrp21wb21at4ko27nnwr",
+  center: [-98.5795, 39.8283],
   zoom: 3,
 });
 
@@ -16,7 +16,7 @@ map.on("load", function () {
     // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
     data: campgrounds,
     cluster: true,
-    clusterMaxZoom: 14, // Max zoom to cluster points on
+    clusterMaxZoom: 5, // Max zoom to cluster points on
     clusterRadius: 50, // Radius of each cluster when clustering points (defaults to 50)
   });
 
@@ -34,11 +34,11 @@ map.on("load", function () {
       "circle-color": [
         "step",
         ["get", "point_count"],
-        "#51bbd6",
-        100,
-        "#f1f075",
-        750,
-        "#f28cb1",
+        "#c22952",
+        10,
+        "#297bc2",
+        25,
+        "#52c229",
       ],
       "circle-radius": ["step", ["get", "point_count"], 20, 20, 30, 30, 40],
     },
@@ -62,7 +62,7 @@ map.on("load", function () {
     source: "campgrounds",
     filter: ["!", ["has", "point_count"]],
     paint: {
-      "circle-color": "#11b4da",
+      "circle-color": "#c26129",
       "circle-radius": 10,
       "circle-stroke-width": 1,
       "circle-stroke-color": "#fff",
