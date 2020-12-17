@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== "production") {
 const PROD_dbUrl = process.env.DB_URL; // CloudDB for production
 const DEV_dbUrl = "mongodb://localhost:27017/yelp-camp";
 const dbUrl = PROD_dbUrl || DEV_dbUrl;
-const DB_TO_USE = DEV_dbUrl;
+const DB_TO_USE = PROD_dbUrl;
 
 const express = require("express");
 const path = require("path");
@@ -34,7 +34,7 @@ const reviewRoutes = require("./routes/reviews");
 const app = express();
 
 // Connect to Database with Mongoose
-mongoose.connect(DEV_dbUrl, {
+mongoose.connect(DB_TO_USE, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
