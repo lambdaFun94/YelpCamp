@@ -1,0 +1,38 @@
+diff --git a/controllers/campgrounds.js b/controllers/campgrounds.js
+index df1914c..367b70e 100644
+--- a/controllers/campgrounds.js
++++ b/controllers/campgrounds.js
+@@ -25,7 +25,7 @@ module.exports.createNewCampground = async (req, res, next) => {
+     url: f.path,
+     filename: f.filename,
+   }));
+-  campground.geoJson = latLong.body.features[0].geometry;
++  campground.geometry = latLong.body.features[0].geometry;
+   campground.author = req.user._id;
+   await campground.save();
+   req.flash("success", "Successfully made a new campground");
+diff --git a/index.js b/index.js
+index ebefcb9..b60770b 100644
+--- a/index.js
++++ b/index.js
+@@ -31,7 +31,7 @@ const app = express();
+ // Connect to Database with Mongoose
+ const PROD_dbUrl = process.env.DB_URL; // CloudDB for production
+ const DEV_dbUrl = "mongodb://localhost:27017/yelp-camp";
+-const dbUrl = PROD_dbUrl || DEV_dbUrl;
++const dbUrl = DEV_dbUrl; // PROD_dbUrl
+ mongoose.connect(dbUrl, {
+   useNewUrlParser: true,
+   useCreateIndex: true,
+diff --git a/public/javascripts/showPageMapBox.js b/public/javascripts/showPageMapBox.js
+index 179b339..075c1bd 100644
+--- a/public/javascripts/showPageMapBox.js
++++ b/public/javascripts/showPageMapBox.js
+@@ -6,6 +6,7 @@ const map = new mapboxgl.Map({
+   zoom: 6,
+ });
+ 
++console.log(campground);
+ new mapboxgl.Marker()
+   .setLngLat(campground.geometry.coordinates)
+   .setPopup(

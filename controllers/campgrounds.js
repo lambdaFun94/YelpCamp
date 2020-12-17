@@ -25,7 +25,7 @@ module.exports.createNewCampground = async (req, res, next) => {
     url: f.path,
     filename: f.filename,
   }));
-  campground.geoJson = latLong.body.features[0].geometry;
+  campground.geometry = latLong.body.features[0].geometry;
   campground.author = req.user._id;
   await campground.save();
   req.flash("success", "Successfully made a new campground");
