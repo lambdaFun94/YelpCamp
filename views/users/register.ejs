@@ -1,0 +1,63 @@
+<% layout('layouts/boilerplate') %> <% layout('layouts/boilerplate') %>
+<div class="container d-flex justify-content-center align-items-center mt-3">
+  <div class="row mb-5">
+    <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+      <div class="card shadow">
+        <img
+          src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80"
+          alt="Camping Image"
+          class="card-img-top"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Sign Up</h5>
+          <form
+            class="needs-validation"
+            action="/register"
+            method="POST"
+            novalidate
+          >
+            <div class="mb-3">
+              <label class="form-label" for="email">Email</label>
+              <input
+                autofocus
+                required
+                class="form-control"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="campSeeker@me.com"
+              />
+              <div class="invalid-feedback">Email is required</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="username">Username</label>
+              <input
+                required
+                class="form-control"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="campSeeker123"
+              />
+              <div class="invalid-feedback">Username is required</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="password">Password</label>
+              <input
+                required
+                class="form-control"
+                type="password"
+                id="password"
+                name="password"
+              />
+              <div class="invalid-feedback">Password is required</div>
+            </div>
+            <div class="mb-3">
+              <button class="btn btn-success btn-block">Create Account</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+node_modules
+mongodbUserPassword.txt
+.env
