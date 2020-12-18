@@ -25,6 +25,7 @@ const helmet = require("helmet");
 const MongoDBStore = require("connect-mongo")(session);
 
 const secret = process.env.SECRET || "secretpasscode";
+
 // Route Imports
 const campgroundRoutes = require("./routes/campgrounds");
 const userRoutes = require("./routes/user");
